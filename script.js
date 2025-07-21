@@ -1,5 +1,33 @@
 // script.js (упрощенная версия без загрузки файлов)
 document.addEventListener('DOMContentLoaded', () => {
+  const giftIcon = document.getElementById('giftIcon');
+  const promoPanel = document.getElementById('promoPanel');
+  const closePromo = document.getElementById('closePromo');
+
+  if (giftIcon && promoPanel) {
+    giftIcon.addEventListener('click', () => {
+      promoPanel.classList.add('active');
+      // При открытии промокодов выключаем музыку
+      if (!bgMusic.paused) {
+        bgMusic.pause();
+        document.getElementById('soundIcon').src = 'picture/earsoff.png';
+        bgVideo.muted = true;
+      }
+    });
+
+    closePromo.addEventListener('click', () => {
+      promoPanel.classList.remove('active');
+    });
+
+    // Закрытие при клике вне панели
+    document.addEventListener('click', (e) => {
+      if (promoPanel.classList.contains('active') &&
+          !promoPanel.contains(e.target) &&
+          !giftIcon.contains(e.target)) {
+        promoPanel.classList.remove('active');
+      }
+    });
+  }
     const bgMusic = document.getElementById('bgMusic');
     const soundToggle = document.getElementById('soundToggle');
     const soundIcon = document.getElementById('soundIcon');
