@@ -228,7 +228,6 @@ body {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
 }
 
-/* Панель промокодов */
 .promo-panel {
   position: fixed;
   top: 0;
@@ -340,5 +339,26 @@ body {
 
   .promo-panel.active {
     right: 0;
+  }
+}
+@media (max-width: 768px) {
+  #promoModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    transform: none !important;
+  }
+
+  .modal-content {
+    width: 90% !important;
+    margin: 10px auto !important;
   }
 }
