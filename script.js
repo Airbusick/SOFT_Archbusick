@@ -16,6 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
     closePromo.addEventListener('click', () => {
       promoPanel.classList.remove('active');
     });
+    document.addEventListener('click', (e) => {
+  if (promoPanel.classList.contains('active') &&
+      !promoPanel.contains(e.target) &&
+      !giftIcon.contains(e.target)) {
+    promoPanel.classList.remove('active');
+
+    if (bgMusic.paused) {
+      bgMusic.play().catch(e => console.log("Автовоспроизведение заблокировано"));
+    }
+  }
+});
 
     document.addEventListener('click', (e) => {
       if (promoPanel.classList.contains('active') &&
