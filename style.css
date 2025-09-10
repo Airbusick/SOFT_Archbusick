@@ -399,7 +399,7 @@ body {
   }
 
   .promo-content {
-    padding-bottom: 80px; /* Защита от перекрытия иконками */
+    padding-bottom: 80px;
   }
 
   .close-btn {
